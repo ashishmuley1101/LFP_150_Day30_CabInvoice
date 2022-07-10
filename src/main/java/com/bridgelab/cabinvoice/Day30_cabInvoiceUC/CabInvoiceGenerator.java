@@ -19,6 +19,15 @@ public class CabInvoiceGenerator {
 		System.out.println("Length is " + rides.length + " Fare is " + totalFare);
 		return new InvoiceSummary(rides.length, totalFare);
 	}
+	
+	public Invoice CabInvoice(Rides[] rides, String invoiceId) {
+        double totalFare = 0.0;
+        for (Rides ride : rides) {
+			totalFare += this.calculateFare(ride.getDistance(), ride.getTime());
+		}
+        System.out.println("Length is " + rides.length + " Fare is " + totalFare + " ID : " + invoiceId);
+		return new Invoice(invoiceId,totalFare);
+	}
 
 	public static void main(String[] args) {
 		System.out.println("****************Cab Invoice Generator****************");
